@@ -4,5 +4,54 @@
 @import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 
 body{
-  background-color: lightblue;
+  background-color: #B2B797;
+}
+.md-button-toggle-checked .md-button-toggle-label-content{ background-color:#FD9728 !important; }
+
+// $colors: (
+//   primary:   teal,
+//   secondary:  #32db64,
+//   danger:     #f53d3d,
+//   light:      #f4f4f4,
+//   dark:       #222
+// );
+
+$colors: (
+  primary:   #E2EE8B,
+  secondary:  #DBF336,
+  danger:     #0BEE6E,
+  light:      #04B483,
+  dark:       #0073A0
+);
+    $mys1: #67D0C1;
+    $mys2: #B2B797;
+    $mys3: #FD9728;
+    $mys4: #DB4F04;
+    $mys5: #092940;
+#welcome{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align:center;
+}
+
+.navigate{
+    background-color: $mys1;
+    color: $mys5;
+    position: center;
+    justify-content: center;
+    width:30%;
+    text-align:center;
+    font-size: 15px;
+    font-family:  Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-bottom: 1.5em;
+    margin: auto;
+    min-width: 150%
+    // margin-bottom: 8px;
+}
+.backdrop{
+    background-color: #67D0C1;
+    
+}
+.selected{
+    // background-color: #67D0C1;
+    background-color: $mys3;
 }

@@ -1,7 +1,10 @@
 <h1 class="titleBlock">My Trips</h1>
 
 <div *ngFor="let pref of prefs">
-  <h4> {{pref}}</h4>
+  <h4 *ngFor="let obj of pref"> {{obj.event}}{{obj.food}}{{obj.transportation}}</h4>
+  <!-- <h4> {{pref.food}}</h4>
+  <h4> {{pref.transportation}}</h4> -->
+
 </div>
 <div>
   <ul>

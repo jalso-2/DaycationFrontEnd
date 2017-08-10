@@ -4,11 +4,17 @@
         <md-grid-list cols="4" rowHeight="50px">
             <md-grid-tile
                 class="tiles"
-                *ngFor="let event of events"
+                *ngFor="let choice of events"
                 [colspan]="1"
                 [rowspan]="1"
             >
-            <button class="navigate" md-raised-button (click)="addEvent(event)" >{{event.replace('_', ' ')}}</button>
+            <button 
+                class="navigate" 
+                [ngClass]="{'selected': choice.selected}" 
+                md-raised-button 
+                (click)="toggleColor(choice); addEvent(choice);" >
+                {{choice.event.replace('_', ' ')}}
+            </button>
             </md-grid-tile>
         </md-grid-list>
         <button md-raised-button (click)="next()" >Next</button>
@@ -17,11 +23,17 @@
         <md-grid-list cols="4" rowHeight="50px">
             <md-grid-tile 
                 class="tiles"
-                *ngFor="let food of foods" 
+                *ngFor="let choice of foods" 
                 [colspan]="1" 
                 [rowspan]="1"
             >
-            <button class="navigate" md-raised-button (click)="addFood(food)">{{food}}</button>
+            <button 
+                class="navigate"
+                [ngClass]="{'selected': choice.selected}"  
+                md-raised-button 
+                (click)="toggleColor(choice); addFood(choice);">
+                {{choice.food}}
+            </button>
             </md-grid-tile>
         </md-grid-list>
         <button md-raised-button (click)="next()" >Next</button>
@@ -30,10 +42,16 @@
         <md-grid-list cols="4" rowHeight="50px">
             <md-grid-tile 
                 class="tiles" 
-                *ngFor="let move of moves" 
+                *ngFor="let choice of moves" 
                 [colspan]="1" 
                 [rowspan]="1">
-            <button class="navigate" md-raised-button (click)="addTransportation(move)">{{move}}</button>
+            <button 
+                class="navigate" 
+                [ngClass]="{'selected': choice.selected}" 
+                md-raised-button 
+                (click)="toggleColor(choice); addTransportation(choice);">
+                {{choice.transportation}}
+            </button>
             </md-grid-tile>
         </md-grid-list>
         <button md-raised-button (click)="next()" >Next</button>    
@@ -41,3 +59,4 @@
 </div>
 
 <app-toolbar></app-toolbar>
+

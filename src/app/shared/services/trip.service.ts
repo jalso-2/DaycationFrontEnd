@@ -3,8 +3,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TripService {
   public events: Array<String>;
+  public mappedEvents: Array<Object>;
   public foods: Array<String>;
+  public mappedFoods: Array<Object>;
   public moves: Array<String>;
+  public mappedMoves: Array<Object>;
   public eventChoices: Array<String>;
   public foodChoices: Array<String>;
   public transportationChoices: Array<String>;
@@ -64,6 +67,27 @@ export class TripService {
       'Pasta',
       'Hot Dogs'
     ];
+    this.mappedEvents = this.events.map(item => {
+      const eventObj = {
+        event: item,
+        selected: false
+      };
+      return eventObj;
+    });
+    this.mappedFoods = this.foods.map(item => {
+      const eventObj = {
+        food: item,
+        selected: false
+      };
+      return eventObj;
+    });
+    this.mappedMoves = this.moves.map(item => {
+      const eventObj = {
+        transportation: item,
+        selected: false
+      };
+      return eventObj;
+    });
   }
 
 }

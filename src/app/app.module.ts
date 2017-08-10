@@ -3,7 +3,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdButtonToggleModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2DropdownModule } from 'ng2-material-dropdown';
 import { L_SEMANTIC_UI_MODULE } from 'angular2-semantic-ui';
@@ -59,6 +59,8 @@ import { ToolbarComponent } from './pages/toolbar/toolbar.component';
     BrowserAnimationsModule,
     Ng2DropdownModule,
     L_SEMANTIC_UI_MODULE,
+    MdButtonToggleModule,
+
   ],
   providers: [
     TestsService,
