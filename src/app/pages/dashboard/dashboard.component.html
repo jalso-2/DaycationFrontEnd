@@ -1,10 +1,10 @@
 <!--WelcomeTitleBlock-->
 <h1 id="welcome"> Welcome {{user}}</h1>
 <!--Display current chosen amount from scroll bar-->
-<h1 class="currentAmount">{{currentAmount}}</h1>
 <!--Choice wheel or slider, start with buttons-->
 <!--Create view, food, and move buttons-->
 <div style="text-align:center">
+<h1 class="currentAmount">${{currentAmount}}</h1>
 <div ></div>
 <button  class="options" md-raised-button>View</button>
 <div ></div>
@@ -13,9 +13,13 @@
 <button  class="options" md-raised-button>Move</button>
 
 <!--Choose and go buttons-->
-<div ></div>
+<div >
+  <div>
+    <md-slider min="0" max="500" step="5" value="1.5" (input)="onInputChange($event)"></md-slider>
+  </div>
+</div>
 <button  class="navigate" md-raised-button routerLink="/choices" >Choices</button>
-<button  class="navigate" md-raised-button routerLink="/mytrips" >Go!</button>
+<button  class="navigate" md-raised-button (click)="generate()" >Go!</button>
 
 <app-toolbar></app-toolbar>
 </div>

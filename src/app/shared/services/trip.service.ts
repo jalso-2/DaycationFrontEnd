@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Config } from '../../../config';
 
 @Injectable()
 export class TripService {
@@ -11,8 +13,14 @@ export class TripService {
   public eventChoices: Array<String>;
   public foodChoices: Array<String>;
   public transportationChoices: Array<String>;
+  private headers = new Headers({ 'Content-Type': 'application/json' });
+
   constructor(
+    public http: Http,
+    public config: Config,
   ) {
+    this.http = http;
+    this.config = config;
     this.eventChoices = [];
     this.foodChoices = [];
     this.transportationChoices = [];
@@ -90,4 +98,26 @@ export class TripService {
     });
   }
 
+  generateTrips(events: string, foods: string, move: string, money: number, location: void) {
+    // const location = await navigator.geolocation.getCurrentPosition((pos) => {
+    //   console.log('pos', pos);
+    //   const loc = `${pos.coords.latitude},${pos.coords.longitude}`;
+    //   return loc;
+    // }, (err) => {
+    //   console.log('err', err);
+    // }, {
+    //   enableHighAccuracy: true,
+    //   timeout: 5000,
+    //   maximumAge: 0
+    // });
+    console.log('events', events);
+    console.log('foods', foods);
+    console.log('move', move);
+    return this.http.post(
+      `${this.config.serverUrl}/getevents?events=${events}&food=${foods}&transportation=${move}&money=${money}&location=${location}`,
+      this.headers)
+      .map(trips => {
+        console.log('trips', trips);
+      }).toPromise().then(prefs => JSON.stringify(prefs));
+  }
 }
