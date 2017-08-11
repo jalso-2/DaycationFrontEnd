@@ -42,20 +42,31 @@ export class ProfileComponent implements OnInit {
       this.counter += 1;
     }
   }
-  toggleColor(name) {
+  toggleColor(name): void {
     console.log('current choice', name);
     name.selected ? name.selected = false : name.selected = true;
     console.log('color changed');
   }
-  addEvent(event) {
-    this.eventArr.push(event.event);
+  addEvent(event): void {
+    const index = this.eventArr.indexOf(event.event);
+    if (index > -1) {
+      this.eventArr.splice(index, 1);
+    } else {
+      this.eventArr.push(event.event);
+    }
   }
 
-  addFood(food) {
-    this.foodArr.push(food.food);
+  addFood(food): void {
+    const index = this.eventArr.indexOf(food.food);
+    if (index > -1) {
+      this.foodArr.splice(index, 1);
+    } else {
+      this.foodArr.push(food.food);
+    }
   }
 
-  addTransportation(move) {
+  addTransportation(move): void {
+    const index = this.eventArr.indexOf(move.transportation);
     this.moveArr.push(move.transportation);
     this.next();
     this.counter++;

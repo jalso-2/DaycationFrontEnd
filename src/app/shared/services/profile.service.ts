@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Config } from '../../../config';
@@ -12,17 +11,14 @@ export class ProfileService {
 
   constructor(
     public http: Http,
-    public router: Router,
     public config: Config,
   ) {
-    this.router = router;
     this.http = http;
     this.config = config;
   }
   public addPreferences(events: Array<String>, foods: Array<String>, moves: Array<String>): Promise<string> {
     const body = {
       userId: JSON.parse(localStorage.getItem('user'))[0].id,
-      // userId: 33,
       prefs: [{ events }, { foods }, { moves}]
     };
     return this.http
