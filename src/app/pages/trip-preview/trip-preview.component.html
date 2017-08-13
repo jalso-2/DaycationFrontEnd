@@ -2,32 +2,40 @@
 
 <!--Map Display-->
 <!--UL of destinations with icons and add to likes buttons-->
-<md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>Shiba Inu</md-card-title>
-    <md-card-subtitle>Dog Breed</md-card-subtitle>
-  </md-card-header>
-  <!-- <img md-card-image src="assets/img/examples/shiba2.jpg"> -->
-  <md-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button>LIKE</button>
-    <button md-button>SHARE</button>
-  </md-card-actions>
-</md-card>
-<ul>
-  <li *ngFor="let stop of stops">
-    <button class="stops" md-raised-button>{{stop}}</button>
-  </li>
-</ul>
+<div id="map"></div>
+
+<div>
+  <ul>
+    <li *ngFor="let stop of stops">
+      <md-card class="example-card">
+        <md-card-header>
+          <div md-card-avatar class="example-header-image"></div>
+          <md-card-title>{{stop.name}}</md-card-title>
+        </md-card-header>
+        <md-card-content>
+            <div md-card-avatar class="example-header-image">
+              <img [src]="stop.photo" class="image" *ngIf="stop.photo" />
+            </div>
+            <div>
+              Address: {{stop.address}}
+            </div>
+            <div>
+              Price: {{stop.price}}
+            </div>
+            <md-card-actions>
+              <button md-button>LIKE</button>
+              <button md-button>SHARE</button>
+            </md-card-actions>
+        </md-card-content>
+      </md-card>
+    </li>
+    
+  </ul>
+</div>
 <!--Choose as current button and add to MyTrips-->
 
 <!--Toolbar with profile, current, mytrips, likes-->
-<app-toolbar></app-toolbar>
+<div>
+  <app-toolbar></app-toolbar>
+</div>
 

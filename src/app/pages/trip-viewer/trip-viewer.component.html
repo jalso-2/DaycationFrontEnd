@@ -4,7 +4,9 @@
 <!--Collapsible Directions guide-->
 <!--Collapsible Descriptions guide-->
 
-
-
-<!--Toolbar with profile, current, mytrips, likes-->
+<ul>
+  <li *ngFor="let trip of trips; let id = index">
+    <button class="trips" md-raised-button (click)="viewTrip(id)">{{trip[0]}}</button>
+  </li>
+</ul>
 <app-toolbar></app-toolbar>
